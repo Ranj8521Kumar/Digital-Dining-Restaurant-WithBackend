@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session'); // Correctly require express-session
 var passport = require('passport'); // Require passport
+const flash = require("connect-flash");//for using connect flash
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -14,6 +15,8 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+app.use(flash());//for using connect flash
 
 app.use(session({
   resave: false,

@@ -1199,7 +1199,26 @@
     background-repeat: repeat;
     background-position: top left;
   }
+
+  .alert-container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
   
+  .alert{
+    color: white;
+    align-items: center;
+    margin-top: 5px;
+  }
+
+  .alert-success{
+    color:green;
+  }
+
+  .alert-danger{
+    color: red;
+  }
   
   
   

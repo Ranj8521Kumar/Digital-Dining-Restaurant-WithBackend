@@ -154,3 +154,11 @@ a{
 footer a{
   font-size: 20px;
 }
+
+
+.error{
+  font-weight: 500;
+  text-transform: capitalize;
+  color: red;
+  margin: 7px 0;
+}
