@@ -3,6 +3,8 @@ var router = express.Router();
 const passport = require("passport");
 const userModel = require("./users");
 const Reservation = require('./reservationServer');
+const Contact = require('./contactServer');
+
 
 const localStrategy = require("passport-local");
 passport.use(new localStrategy(userModel.authenticate()));
@@ -17,8 +19,11 @@ router.get("/login", function (req, res, next) {
 });
 
 
-router.get("/profile", isLoggedIn, function (req, res, next) {
-  res.render("profile", { success: req.flash('success'), error: req.flash('error'), }); 
+router.get("/profile", isLoggedIn, async function (req, res, next) {
+  const user = await userModel.findOne({
+    username: req.session.passport.user,
+  });
+  res.render("profile", { success: req.flash('success'), error: req.flash('error'), user }); 
 });
 
 router.post("/register", (req, res)=>{
@@ -80,6 +85,43 @@ router.post('/reservation', async (req, res) => {
     res.redirect('/profile');
   }
 });
+
+
+router.get('/contact', isLoggedIn,  function(req,res,next){
+  res.render('contact',{ success: req.flash('success'), error: req.flash('error'),});
+})
+
+
+router.post('/contact', async (req, res) => {
+  try {
+    // Extract data from request body
+    const { name, email, message } = req.body;
+
+    // Create a new contact instance
+    const newContact = new Contact({
+      name,
+      email,
+      message
+    });
+
+    // Save the contact to the database
+    await newContact.save();
+
+    // Respond with success message
+    req.flash('success', "Contact Saved successful!");
+    res.redirect("/contact");
+  } catch (error) {
+    console.error("Error occurred during Saving Contact:", error);
+    req.flash('error', "An error Occurred.")
+    res.redirect('/contact');
+  }
+});
+
+
+router.get('/menu', isLoggedIn,  function(req,res,next){
+  res.render('menu');
+})
+
 
 
 

@@ -12,12 +12,6 @@
   <title>Digital Dining Restaurant</title>
   <meta name="title" content="Digital Dining Restaurant">
   <meta name="description" content="This is a Restaurant html template made by Ranjan and Rajnish">
-
-  <!-- 
-    - favicon
-  -->
-  <link rel="shortcut icon" href="restaurant.svg" type="image/svg+xml">
-
   <!-- 
     - google font link
   -->
@@ -29,6 +23,7 @@
     - custom css link
   -->
   <link rel="stylesheet" href="/stylesheets/RestaurantStyle.css">
+
 
   <!-- 
     - preload images
@@ -81,6 +76,8 @@
         <span class="span">Daily : 9.30 am - 10.00 pm</span>
       </div>
 
+      <div class="separator"></div>
+
       <a href="tel:+918521584878" class="topbar-item link">
         <div class="icon">
           <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
@@ -97,6 +94,25 @@
         </div>
 
         <span class="span">booking@123.com</span>
+      </a>
+
+      <div class="separator"></div>
+
+      <div class="topbar-item item-2">
+        <ion-avatar class="custom-avatar">
+          <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+        </ion-avatar>
+        
+
+        <span class="span username"><%= user.username %></span>
+      </div>
+
+      <div class="separator"></div>
+
+      <a href="/logout" class="btn btn-secondary logout">
+        <span class="text text-1">Logout</span>
+
+        <span class="text text-2 logout-text" aria-hidden="true">Logout</span>
       </a>
 
     </div>
@@ -162,7 +178,7 @@
           </li>
 
           <li class="navbar-item">
-            <a href="#" class="navbar-link hover-underline">
+            <a href="/contact" class="navbar-link hover-underline">
               <div class="separator"></div>
 
               <span class="span">Contact</span>
@@ -243,7 +259,7 @@
               Come with family & feel the joy of mouthwatering food
             </p>
 
-            <a href="#" class="btn btn-primary slider-reveal">
+            <a href="/menu" class="btn btn-primary slider-reveal">
               <span class="text text-1">View Our Menu</span>
 
               <span class="text text-2" aria-hidden="true">View Our Menu</span>

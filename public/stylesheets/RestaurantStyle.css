@@ -575,7 +575,26 @@
   \*-----------------------------------*/
   
   .topbar { display: none; }
+
+  .custom-avatar img {
+    width: 30px;
+    height: 30px;
+    margin-right: 20%;
+    border-radius: 50%;
+    filter: sepia(100%) saturate(50%) hue-rotate(45deg);
+    margin-left: 15%;
+  }
+
+  .username{
+    margin-left: 10%;
+  }
   
+
+  .logout{
+    padding: 2px 10px;
+    background-color: red;
+    border-radius: 10px;
+  }
   
   
   
