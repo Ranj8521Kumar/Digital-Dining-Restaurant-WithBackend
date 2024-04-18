@@ -23,6 +23,7 @@
     - custom css link
   -->
   <link rel="stylesheet" href="/stylesheets/RestaurantStyle.css">
+  <link rel="stylesheet" href="/stylesheets/mouseMove.css">
 
 
   <!-- 
@@ -35,6 +36,12 @@
 </head>
 
 <body id="top">
+
+  <!--
+    -MouseMove
+  -->
+
+  <div class="mini-circle"></div>
 
   <!-- 
     - #PRELOADER
@@ -520,7 +527,7 @@
               <span class="span body-1">Rs299</span>
             </div>
 
-            <a href="#" class="btn btn-primary">
+            <a href="/menu" class="btn btn-primary">
               <span class="text text-1">View All Menu</span>
 
               <span class="text text-2" aria-hidden="true">View All Menu</span>
@@ -721,7 +728,7 @@
             During winter daily from <span class="span">7:00 pm</span> to <span class="span">9:00 pm</span>
           </p>
 
-          <a href="#" class="btn btn-primary">
+          <a href="/menu" class="btn btn-primary">
             <span class="text text-1">View All Menu</span>
 
             <span class="text text-2" aria-hidden="true">View All Menu</span>
@@ -1122,7 +1129,7 @@
             Subscribe us & Get <span class="span">25% Off.</span>
           </p>
 
-          <form action="" class="input-wrapper">
+          <form action="/subscribe" class="input-wrapper" method="post">
             <div class="icon-wrapper">
               <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
 
@@ -1134,7 +1141,24 @@
 
               <span class="text text-2" aria-hidden="true">Subscribe</span>
             </button>
+
+            
+          
+
           </form>
+
+          
+          <% if (successSubscribe && successSubscribe.length > 0) { %>
+            <div class="alert alert-success">
+              <%= successSubscribe %>
+            </div>
+          <% } %>
+
+          <% if (errorSubscribe.length > 0) { %>
+            <div class="alert alert-danger">
+                <%= errorSubscribe %>
+            </div>
+        <% } %>
 
         </div>
 
@@ -1233,6 +1257,13 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <!--
+    -MouseMove Link
+  -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/javascripts/mouseMove.js"></script>
 
 </body>
 

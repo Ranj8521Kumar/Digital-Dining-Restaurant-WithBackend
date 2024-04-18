@@ -4,6 +4,8 @@ const passport = require("passport");
 const userModel = require("./users");
 const Reservation = require('./reservationServer');
 const Contact = require('./contactServer');
+const Subscribe = require('./subscribeServer'); // Import the Subscribe model
+
 
 
 const localStrategy = require("passport-local");
@@ -23,7 +25,7 @@ router.get("/profile", isLoggedIn, async function (req, res, next) {
   const user = await userModel.findOne({
     username: req.session.passport.user,
   });
-  res.render("profile", { success: req.flash('success'), error: req.flash('error'), user }); 
+  res.render("profile", { success: req.flash('success'), error: req.flash('error'), user, successSubscribe: req.flash('successSubscribe'), errorSubscribe: req.flash('errorSubscribe'), }); 
 });
 
 router.post("/register", (req, res)=>{
@@ -120,9 +122,34 @@ router.post('/contact', async (req, res) => {
 
 router.get('/menu', isLoggedIn,  function(req,res,next){
   res.render('menu');
-})
+});
 
 
+// POST route for subscribing
+router.post('/subscribe', async (req, res) => {
+  try {
+    // Extract the email address from the request body
+    const { email_address } = req.body;
+
+    // Check if the email address is provided
+    if (!email_address) {
+      return res.status(400).json({ error: 'Email address is required' });
+    }
+
+    // Create a new document using the Subscribe model
+    const newSubscriber = new Subscribe({ email_address });
+
+    // Save the new subscriber to the database
+    await newSubscriber.save();
+
+    req.flash('successSubscribe', "You have Subscribed!");
+    res.redirect("/profile");
+  } catch (error) {
+    console.error("Error occurred during reservation:", error);
+    req.flash('errorSubscribe', "An error Occurred.")
+    res.redirect('/profile');
+  }
+});
 
 
 module.exports = router;

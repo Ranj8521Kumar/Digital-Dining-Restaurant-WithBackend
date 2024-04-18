@@ -1,0 +1,18 @@
+.mini-circle{
+    height: 20px;
+    width: 20px;
+    background-color: grey;
+    border-radius: 50%;
+    opacity: 0.8;
+    border: 1px solid rgb(239, 235, 235);
+    position: absolute;
+    z-index: 999999;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.5s;
+}
+
+@media screen and (max-width=600px){
+    .mini-circle{
+        height: 10px;
+        width: 10px;
+    }
+}
