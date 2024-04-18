@@ -80,11 +80,11 @@ router.post('/reservation', async (req, res) => {
     });
     await newReservation.save();
     req.flash('success', "Reservation successful!");
-    res.redirect("/profile");
+    res.redirect("/profile#reservation");
   } catch (error) {
     console.error("Error occurred during reservation:", error);
     req.flash('error', "An error Occurred.")
-    res.redirect('/profile');
+    res.redirect('/profile#reservation');
   }
 });
 
@@ -143,11 +143,11 @@ router.post('/subscribe', async (req, res) => {
     await newSubscriber.save();
 
     req.flash('successSubscribe', "You have Subscribed!");
-    res.redirect("/profile");
+    res.redirect("/profile#subscribe");
   } catch (error) {
     console.error("Error occurred during reservation:", error);
     req.flash('errorSubscribe', "An error Occurred.")
-    res.redirect('/profile');
+    res.redirect('/profile#subscribe');
   }
 });
 
