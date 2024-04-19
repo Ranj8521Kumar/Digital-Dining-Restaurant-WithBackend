@@ -5,6 +5,7 @@ const userModel = require("./users");
 const Reservation = require('../models/reservationServer');
 const Contact = require('../models/contactServer');
 const Subscribe = require('../models/subscribeServer'); // Import the Subscribe model
+const upload = require("./multer");
 
 
 
@@ -26,6 +27,13 @@ router.get("/profile", isLoggedIn, async function (req, res, next) {
     username: req.session.passport.user,
   });
   res.render("profile", { success: req.flash('success'), error: req.flash('error'), user, successSubscribe: req.flash('successSubscribe'), errorSubscribe: req.flash('errorSubscribe'), }); 
+});
+
+router.post("/fileupload",isLoggedIn, upload.single("image"), async function (req, res, next) {
+    const user = await userModel.findOne({username: req.session.passport.user});
+    user.profileimage = req.file.filename;
+    await user.save();
+    res.redirect("/profile");
 });
 
 router.post("/register", (req, res)=>{

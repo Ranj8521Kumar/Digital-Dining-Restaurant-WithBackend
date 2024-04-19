@@ -595,6 +595,20 @@
     background-color: red;
     border-radius: 10px;
   }
+
+  .pencil-parent {
+    position: relative;
+  }
+  
+  .pencil-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: -14px 40px;
+    cursor: pointer;
+  }
+  
+  
   
   
   

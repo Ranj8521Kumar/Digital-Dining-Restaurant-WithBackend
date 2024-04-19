@@ -167,3 +167,13 @@ window.addEventListener("mousemove", function (event) {
   }
 
 });
+
+
+// imageuploding
+document.querySelector("#upload-image").addEventListener("click", ()=>{
+  document.querySelector('#uploadform input').click();
+})
+
+document.querySelector('#uploadform input').addEventListener("change", ()=>{
+  document.querySelector("#uploadform").submit();
+})
