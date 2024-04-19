@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 const passport = require("passport");
-const userModel = require("../models/users");
+const userModel = require("./users");
 const Reservation = require('../models/reservationServer');
 const Contact = require('../models/contactServer');
 const Subscribe = require('../models/subscribeServer'); // Import the Subscribe model
