@@ -63,7 +63,7 @@ router.get("/logout", function (req, res, next) {
     if (err) {
       return next(err);
     }
-    res.redirect("/");
+    res.redirect("/login");
   });
 });
 
@@ -97,8 +97,11 @@ router.post('/reservation', async (req, res) => {
 });
 
 
-router.get('/contact', isLoggedIn,  function(req,res,next){
-  res.render('contact',{ success: req.flash('success'), error: req.flash('error'),});
+router.get('/contact', isLoggedIn, async function(req,res,next){
+  const user = await userModel.findOne({
+    username: req.session.passport.user,
+  });
+  res.render('contact',{ success: req.flash('success'), error: req.flash('error'), user});
 })
 
 
@@ -157,6 +160,13 @@ router.post('/subscribe', async (req, res) => {
     req.flash('errorSubscribe', "An error Occurred.")
     res.redirect('/profile#subscribe');
   }
+});
+
+router.get('/profile/menu',async (req,res)=>{
+  const user = await userModel.findOne({
+    username: req.session.passport.user,
+  });
+  res.render('menu',{user});
 });
 
 

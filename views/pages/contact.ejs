@@ -16,6 +16,53 @@
   -->
   <div class="mini-circle"></div>
 
+
+
+  <div class="topbar">
+    <div class="container">
+  
+      <div class="topbar-item">
+        <div class="icon">
+          <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+        </div>
+        <a href="/profile" class="btn btn-secondary logout">
+          <span class="text text-1">Home</span>
+        </a>
+      </div>
+  
+      <div class="separator"></div>
+  
+      <div class="topbar-item item-2">
+        <div class="icon">
+          <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+        </div>
+        <span class="span">Daily : 9.30 am - 10.00 pm</span>
+      </div>
+  
+      <!-- More topbar items here -->
+  
+      <div class="separator"></div>
+  
+      <div class="topbar-item item-2 pencil-parent">
+        <ion-avatar class="custom-avatar">
+          <img alt="Silhouette of a person's head" src="/uploads/<%= user.profileimage %>" />
+        </ion-avatar>
+        <span class="span username"><%= user.username %></span>
+      </div>
+  
+      <div class="separator"></div>
+  
+      <a href="/logout" class="btn btn-secondary logout">
+        <span class="text text-1">Logout</span>
+      </a>
+    </div>
+  </div>
+  
+
+
+
+
+
     <section id="contact">
   
         <h1 class="section-header">Contact Me</h1>

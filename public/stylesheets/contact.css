@@ -243,3 +243,108 @@ textarea {
 .error {
   color: red;
 }
+
+
+
+
+/*-----------------------------------*\
+    #TOPBAR
+\*-----------------------------------*/
+.topbar {
+  background-color: #333; /* Background color */
+  color: #fff; /* Text color */
+  padding: 10px 15%; /* Padding */
+}
+
+.topbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topbar .topbar-item {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.topbar .icon {
+  margin-right: 5px;
+}
+
+.topbar .separator {
+  width: 1px;
+  height: 20px;
+  background-color: #fff;
+  margin-right: 10px;
+}
+
+.topbar .span {
+  font-size: 14px;
+}
+
+.topbar .pencil-parent {
+  position: relative;
+}
+
+
+.topbar .custom-avatar:hover + .pencil-icon {
+  display: block;
+}
+
+.topbar .logout {
+  color: #fff;
+  text-decoration: none;
+  background-color: transparent;
+  border: 1px solid #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.topbar .logout:hover {
+  background-color: #fff;
+  color: #333;
+}
+
+.custom-avatar img {
+  height: 20px;
+  width: 20px;
+  margin-top: 10px;
+}
+
+.topbar-item {
+  text-align: center;
+}
+
+.span{
+  color: white;
+}
+
+
+/* media query for mobile devices */
+@media only screen and (max-width: 768px) {
+  .topbar {
+    padding: 10px 5%;
+  }
+  
+  .separator {
+    display: none;
+  }
+
+  .topbar .topbar-item {
+    margin-right: 10px;
+  }
+
+  .topbar .span {
+    font-size: 12px;
+  }
+
+  .menu-btn {
+    display: block;
+    cursor: pointer;
+  }
+
+  .topbar .logout {
+    display: block;
+  }
+}
