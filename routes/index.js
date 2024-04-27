@@ -170,4 +170,12 @@ router.get('/profile/menu',async (req,res)=>{
 });
 
 
+router.get('/profile/userprofile', isLoggedIn, async function(req,res,next){
+  const user = await userModel.findOne({
+    username: req.session.passport.user,
+  });
+  res.render('userprofile',{ success: req.flash('success'), error: req.flash('error'), user});
+})
+
+
 module.exports = router;

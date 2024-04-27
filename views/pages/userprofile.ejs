@@ -1,79 +1,29 @@
-%html
-  %head
-    %title My Website
-    %meta{charset: "UTF-8"}
-    %link{rel: "stylesheet", href: "/stylesheets/userprofile.css"}
-    %link{rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"}
-  %body
-  .container
-  .avatar
-      %img{src: "https://assets.codepen.io/5453939/internal/avatars/users/default.png?format=auto&version=1638034680&width=300&height=300"}
-  .username
-      %h3 Usman Kabir
-  .button{data: {target: "#home"}}
-      .button__icon
-          %i.fa-solid.fa-house
-      .button__text
-          Home
-  .button{data: {target: "#contact"}}
-      .button__icon
-          %i.fa-solid.fa-phone
-      .button__text
-          Contact
-  .button{data: {target: "#about"}}
-      .button__icon
-          %i.fa-solid.fa-user
-      .button__text
-          About
-  .button{data: {target: "#education"}}
-      .button__icon
-          %i.fa-solid.fa-user-graduate
-      .button__text
-          Education
-
-.page#home
-  .page__header
-      .page__title
-          Home
-      .page__close
-          %i.fa-solid.fa-xmark
-  .page__body
-      %h4 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-      %p Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos optio laboriosam, saepe nulla laborum aperiam nemo sed iure beatae error labore! Mollitia, aperiam adipisci sapiente aliquid non dignissimos enim commodi?
-
-.page#contact
-  .page__header
-      .page__title
-          Contact
-      .page__close
-          %i.fa-solid.fa-xmark
-  .page__body
-      %h4 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime, explicabo?
-      %p Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos optio laboriosam, saepe nulla laborum aperiam nemo sed iure beatae error labore! Mollitia, aperiam adipisci sapiente aliquid non dignissimos enim commodi?
-      %h4 Lorem ipsum dolor sit amet.
-      %p Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos optio laboriosam, saepe nulla laborum aperiam nemo sed iure beatae error labore! Mollitia, aperiam adipisci sapiente aliquid non dignissimos enim commodi?
-      
-.page#about
-  .page__header
-      .page__title
-          About
-      .page__close
-          %i.fa-solid.fa-xmark
-  .page__body
-      %h4 Lorem ipsum dolor sit amet consectetur adipisicing.
-      %p Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos optio laboriosam, saepe nulla laborum aperiam nemo sed iure beatae error labore! Mollitia, aperiam adipisci sapiente aliquid non dignissimos enim commodi?
-      %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque fuga molestiae, nihil iste debitis nemo laborum aut aliquid! Quod veritatis dolorem suscipit? Maxime tempore inventore molestias eligendi animi quo at provident vitae nobis, distinctio, molestiae quis accusamus accusantium ullam officia quaerat illo iste! Pariatur provident odit iusto ipsum, natus tenetur alias asperiores temporibus tempora eaque maxime, consectetur similique quasi totam perspiciatis. Architecto dolores facilis quo itaque amet dolore deleniti debitis ab nesciunt doloremque facere nemo sapiente velit expedita consequuntur blanditiis, officia deserunt aperiam sit explicabo numquam omnis. Quod ut unde alias odio, excepturi, deserunt reprehenderit ipsa at, incidunt cumque ipsam consequuntur est! Ipsam itaque unde cupiditate dolorem exercitationem beatae? Eum voluptas ipsam sunt cumque repellendus aperiam sequi reiciendis eos quaerat.
-      
-.page#education
-  .page__header
-      .page__title
-          Education
-      .page__close
-          %i.fa-solid.fa-xmark
-  .page__body
-      %h4 Lorem ipsum dolor sit amet consectetur.
-      %p Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos optio laboriosam, saepe nulla laborum aperiam nemo sed iure beatae error labore! Mollitia, aperiam adipisci sapiente aliquid non dignissimos enim commodi?
-      %h4 Lorem ipsum dolor sit.
-      %p Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos optio laboriosam, saepe nulla laborum aperiam nemo sed iure beatae error labore! Mollitia, aperiam adipisci sapiente aliquid non dignissimos enim commodi?
-      %h4 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam dolorum officia quasi!
-      %p Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi eius velit animi blanditiis? Suscipit voluptatibus aliquam quasi eveniet facilis laudantium dolor corporis accusamus sint et possimus odio esse iste numquam magnam, veniam, nulla voluptates, architecto molestiae debitis rem consequatur ut earum porro? Incidunt necessitatibus esse aperiam cumque architecto molestiae modi.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UserProfile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/stylesheets/userprofile.css">
+</head>
+<body>
+    <div class="container">
+        <div class="avatar">
+            <img src="/uploads/<%= user.profileimage %>" alt="User Avatar">
+        </div>
+        <div class="username">
+            <h3><%= user.username %></h3>
+        </div>
+        <button class="button" data-target="#home">
+            <div class="button__icon"><i class="fa-solid fa-house"></i></div>
+            <div class="button__text"><a href="/profile">Home</a></div>
+        </button>
+        <button class="button" data-target="#contact">
+            <div class="button__icon"><i class="fa-solid fa-right-from-bracket"></i></div>
+            <div class="button__text"><a href="/logout">Logout</a></div>
+        </button>
+    </div>
+    
+</body>
+</html>
