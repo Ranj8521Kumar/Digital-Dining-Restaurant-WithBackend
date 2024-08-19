@@ -178,4 +178,21 @@ router.get('/profile/userprofile', isLoggedIn, async function(req,res,next){
 })
 
 
+
+
+router.get('/forgotPassword',async (req,res)=>{
+  const user = await userModel.findOne({
+    username: req.session.passport.user,
+  });
+  res.render('forgot-password',{user});
+});
+
+router.get('/resetPassword',async (req,res)=>{
+  const user = await userModel.findOne({
+    username: req.session.passport.user,
+  });
+  res.render('reset-password',{user});
+});
+
+
 module.exports = router;
